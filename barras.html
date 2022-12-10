@@ -1,0 +1,44 @@
+
+<h3>Barras</h3>
+
+<canvas width="800" height="800"></canvas>
+
+<script>
+
+    function dibujarRectangulo(x, y, base, altura, color) {
+        var pantalla = document.querySelector("canvas");
+        var pincel = pantalla.getContext("2d");
+
+        pincel.fillStyle=color;
+        pincel.fillRect(x,y, base, altura);
+        pincel.strokeStyle="black";
+        pincel.strokeRect(x,y, base, altura);
+    }
+
+    function escribirTexto(x , y, texto) {
+        var pantalla = document.querySelector("canvas");
+        var pincel = pantalla.getContext("2d");
+
+        pincel.font="15px Georgia";
+        pincel.fillStyle="black";
+        pincel.fillText(texto, x, y);    
+    }
+
+    escribirTexto(100,20, "var serie2009 = [20, 47, 100, 15, 70]")
+    escribirTexto(120,40, "2009")
+
+    var colores = ["blue", "green", "yellow","red","brown"]
+    var datos = [20, 47, 100, 15, 70]
+
+    
+    var sizei = 50
+    for (let index = 0; index < datos.length; index++) {
+        console.log(sizei);
+        dibujarRectangulo(100, sizei ,  80, datos[index], colores[index])
+        escribirTexto(190,sizei, datos[index] + " px")
+
+        sizei = sizei + datos[index]
+    }
+        //Aquí viene el texto faltante
+
+</script>

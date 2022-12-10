@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <canvas width="800" height="800"></canvas>
+
+    <script>
+
+        var lienzo = document.querySelector("canvas");
+        var pincel = lienzo.getContext("2d")
+        
+        pincel.fillStyle = "black"
+        pincel.fillRect(0,0,500,600)
+        
+
+        function drawCircle(x, y, radio){
+            pincel.fillStyle = "white"
+            pincel.beginPath()
+            pincel.arc(x,y, radio, 0, 2*Math.PI)
+            pincel.fill()
+        }
+
+         function cleanDisplay(){
+            pincel.clearRect(0,0,500,600)
+         }
+
+        var x = 0
+        function freshDisplay(){
+            //cleanDisplay()
+            let altY = Math.floor(Math.random() * 300)
+            let altx = Math.floor(Math.random() * 600)
+
+            drawCircle(altx, altY, 2)
+            x++
+         }
+
+        setInterval(freshDisplay, 700)
+
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<style>
+    h1{
+        color: green;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+</style>
+
+</head>
+<body>
+    <h1 >Creeper</h1>
+
+    <canvas width="600" height="600"></canvas>
+
+
+<script>
+    var lienzo = document.querySelector("canvas"); 
+    var pincel = lienzo.getContext("2d");
+
+    //Base
+    pincel.fillStyle = "#0DB50D";
+    pincel.fillRect(0,0,300, 250);
+
+    // OJOS
+    pincel.fillStyle = "black";
+    pincel.fillRect(40,50,80, 80);
+    //pincel.fillStyle = "black";
+    pincel.fillRect(180,50,80, 80);
+
+    //Nariz
+    //pincel.fillStyle = "black";
+    pincel.fillRect(120,130,60, 80);
+
+    //pincel.fillStyle = "black";
+    pincel.fillRect(80,170,40, 80);
+    //pincel.fillStyle = "black";
+    pincel.fillRect(180,170,40, 80);
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

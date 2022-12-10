@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <canvas width="500" height="400"></canvas>
+
+
+    <script>
+
+        var colores = ["green", "blue", "yellow"]
+        var i = 0
+        var lienzo = document.querySelector("canvas");
+        var pincel = lienzo.getContext("2d")
+
+        pincel.fillStyle = "grey"
+        pincel.fillRect(0,0,500,600)
+
+        function alerta(evento){
+            let x = evento.pageX - lienzo.offsetLeft
+            let y = evento.pageY - lienzo.offsetTop
+
+
+            alert("X:"+x+" Y:"+y)
+        }
+
+        function circulo(evento) {
+            let x = evento.pageX - lienzo.offsetLeft
+            let y = evento.pageY - lienzo.offsetTop
+            
+            pincel.fillStyle = colores[i]
+            pincel.beginPath()
+            pincel.arc(x,y, 20, 0, 2* Math.PI)
+            pincel.fill()
+            
+        }
+        
+        
+        function changeColor(){
+            if(i == 2){
+                i = 0
+            }else{
+                i = i +1
+            }
+            console.log("Funciono: " + colores[i])
+            
+            console.log(i);
+            return false;
+        }
+        
+        lienzo.onclick = circulo
+        lienzo.oncontextmenu = changeColor;
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <canvas width="600" height="400"></canvas>
+    
+    
+    <script>
+        var lienzo = document.querySelector("canvas")
+        var pincel = lienzo.getContext("2d")
+        
+        //pincel.strokeStyle = "black"
+        
+        function circulos( color, x, y){
+            
+            pincel.fillStyle = color;
+            pincel.beginPath();
+            pincel.arc(x, y,50, 0, 2*3.14);
+            pincel.stroke();
+            pincel.fill();
+        }
+        circulos("red", 200, 200);
+        circulos("orange", 100, 200);
+        circulos("blue", 200, 300);
+        circulos("black", 300, 200);
+        circulos("yellow", 200, 100);
+
+
+    </script>
+</body>
+</html>

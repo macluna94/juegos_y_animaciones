@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas width="800" height="800"></canvas>
+
+    <script>
+
+        var lienzo = document.querySelector("canvas");
+        var pincel = lienzo.getContext("2d")
+        const radio = 15
+        var altx = sortPos(300)
+        var alty = sortPos(300)
+
+        pincel.fillStyle = "lightgray"
+        pincel.fillRect(0,0,500,500)
+
+        function cleanDisplay(){
+            pincel.clearRect(0,0,500,500)
+         }
+
+        function drawCircle(x, y, radio, color){
+            pincel.fillStyle = color
+            pincel.beginPath()
+            pincel.arc(x,y, radio, 0, 2*Math.PI)
+            pincel.fill()
+        }
+
+        function desingObj(x, y){
+
+            drawCircle(x + 80,y + 80, radio + 60, "red")
+            drawCircle(x + 80,y + 80, radio + 30, "white")    
+            drawCircle(x + 80,y + 80, radio, "blue")
+        }
+
+        function sortPos(maximo){
+            return Math.floor(Math.random() * maximo)
+        }
+
+        function freshDisplay(){
+            altx = sortPos(300)
+            alty = sortPos(300)
+            cleanDisplay()
+            desingObj(altx, alty)
+            console.log("X:"+altx+" . Y:"+alty);
+
+
+        }
+
+        function flecha(evento){
+            let px = evento.pageX - lienzo.offsetLeft
+            let py = evento.pageY - lienzo.offsetTop
+
+            if (px >= altx && px <= (altx+60) ) {
+                console.log("Acertado", px, py)
+                
+            } else {
+                console.log("fallaste", px, py)
+
+            }
+        }
+
+        freshDisplay()
+
+        //setInterval(freshDisplay,5000)
+
+        lienzo.onclick = flecha
+
+        </script>
+</body>
+</html>
